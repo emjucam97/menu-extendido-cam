@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Azúcar Morena — Menú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:     #FAF7F2;
+  --paper-2:   #F3EDE4;
+  --paper-3:   #EDE5D8;
+  --ink:       #1A0C05;
+  --ink-2:     #3D200F;
+  --ink-dim:   #7A5C47;
+  --rule:      #D9CDBF;
+  --rule-lt:   #EDE5DA;
+  --brown:     #8B4E22;
+  --caramel:   #A8641C;
+  --gold:      #B8832A;
+  --gold-lt:   #D4A84B;
+  --red:       #9B2217;
+  --green:     #2A6043;
+  --navy:      #1C3255;
+
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'Nunito Sans', system-ui, sans-serif;
+  --r: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px 80px;
+}
+
+/* ── HEADER ── */
+.brand-header {
+  padding: 52px 0 40px;
+  text-align: center;
+  border-bottom: 1.5px solid var(--ink);
+}
+.brand-meta {
+  font-family: var(--f-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 18px;
+}
+.brand-logo {
+  display: block;
+  margin: 0 auto 16px;
+  height: 52px;
+  width: auto;
+}
+.brand-name {
+  font-family: var(--f-display);
+  font-size: clamp(52px, 9vw, 88px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--ink);
+}
+.brand-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brown);
+}
+.brand-sub {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  font-weight: 400;
+}
+
+/* ── NAV ── */
+.nav-bar {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex-shrink: 0;
+  padding: 14px 20px;
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.nav-tab:hover {
+  color: var(--ink);
+  border-bottom-color: var(--brown);
+}
+
+/* ── SECTION ── */
+.menu-section {
+  margin-bottom: 64px;
+  animation: fadeUp 0.45s ease both;
+}
+.menu-section:nth-child(1) { animation-delay: .05s }
+.menu-section:nth-child(2) { animation-delay: .10s }
+.menu-section:nth-child(3) { animation-delay: .15s }
+.menu-section:nth-child(4) { animation-delay: .20s }
+.menu-section:nth-child(5) { animation-delay: .25s }
+.menu-section:nth-child(6) { animation-delay: .30s }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px) }
+  to   { opacity:1; transform:translateY(0) }
+}
+
+.sec-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--ink);
+}
+.sec-title {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+}
+.sec-title em { font-style: italic; }
+.sec-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+/* ── ITEMS ── */
+.items-list { margin-top: 2px; }
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px 24px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule-lt);
+  position: relative;
+}
+.item:last-child { border-bottom: none; }
+
+.item-name {
+  font-family: var(--f-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.item-name.sig {
+  font-style: italic;
+}
+.item-name .star {
+  font-style: normal;
+  color: var(--gold);
+  font-size: 14px;
+  margin-right: 4px;
+}
+.item-desc {
+  grid-column: 1;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  margin-top: 2px;
+  line-height: 1.5;
+}
+.item-price {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  font-family: var(--f-display);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.sig-bar {
+  position: absolute;
+  left: -14px; top: 16px; bottom: 16px;
+  width: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-style: normal;
+}
+.tag-best { background: #FFF0E0; color: var(--caramel); border: 1px solid rgba(168,100,28,.2); }
+.tag-sig  { background: #FDF6E8; color: var(--gold); border: 1px solid rgba(184,131,42,.25); }
+
+/* ── 2-COL GRID ── */
+.items-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+  margin-top: 2px;
+}
+.items-2col .item { border-bottom: 1px solid var(--rule-lt); }
+@media(max-width: 680px) { .items-2col { grid-template-columns: 1fr; } }
+
+/* ── BUILD-YOUR-OWN ── */
+.build-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+@media(max-width: 680px){ .build-grid { grid-template-columns: 1fr; } }
+
+.build-card {
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.build-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 20px 14px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.build-title {
+  font-family: var(--f-display);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+.build-title em { font-style: italic; }
+.build-base-price {
+  font-family: var(--f-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--gold-lt);
+  text-align: right;
+  line-height: 1;
+}
+.build-base-sub {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 4px;
+  text-align: right;
+}
+.build-body {
+  padding: 16px 20px 20px;
+  background: var(--paper-2);
+}
+.build-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule-lt);
+}
+.build-row:last-child { border-bottom: none; }
+.build-key {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brown);
+  min-width: 88px;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+.build-val {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.build-val .plus { color: var(--caramel); font-weight: 600; }
+
+/* ── COMBOS ── */
+.combos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+@media(max-width: 580px){ .combos-grid { grid-template-columns: 1fr; } }
+
+.combo-card {
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  background: var(--paper-2);
+  transition: border-color .2s, background .2s;
+}
+.combo-card:hover {
+  border-color: var(--brown);
+  background: #FDF8F2;
+}
+.combo-name {
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.combo-desc {
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.combo-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.combo-price {
+  font-family: var(--f-display);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.combo-save {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(42,96,67,.08);
+  border: 1px solid rgba(42,96,67,.2);
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
+/* ── BEVERAGES ── */
+.bev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 48px;
+  margin-top: 20px;
+}
+@media(max-width: 800px){ .bev-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 480px){ .bev-grid { grid-template-columns: 1fr; } }
+
+.bev-family { }
+.bev-fam-name {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brown);
+  padding-bottom: 8px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid var(--rule);
+}
+.bev-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule-lt);
+}
+.bev-item:last-child { border-bottom: none; }
+.bev-left { flex: 1; }
+.bev-name {
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.bev-name.sig { font-style: italic; }
+.bev-note {
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  margin-top: 1px;
+}
+.bev-price {
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.bev-extras {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  line-height: 1.8;
+  padding-top: 10px;
+  border-top: 1px solid var(--rule-lt);
+}
+
+/* ── FOOTER ── */
+.menu-footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1.5px solid var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: var(--f-display);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ink);
+}
+.footer-brand em { font-style: italic; color: var(--brown); }
+.footer-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+.footer-note {
+  width: 100%;
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+/* ── DIVIDER BETWEEN COLS ── */
+.items-2col .col-divider {
+  grid-column: 1 / -1;
+  height: 0;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="brand-header">
+    <div class="brand-meta">EST. 2018 · MONTERREY · CAFÉ DE ESPECIALIDAD</div>
+    <img
+      class="brand-logo"
+      src="https://cafeazucarmorena.com/cdn/shop/files/logo_5b686071-723b-46a4-a88e-39db4689d7c0_1000x1000.svg?v=1677769989"
+      alt="Café Azúcar Morena"
+      onerror="this.style.display='none'"
+    />
+    <h1 class="brand-name">Café <em>Azúcar</em> Morena</h1>
+    <p class="brand-sub">Bowls · Café · Buenos días</p>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav-bar">
+    <a class="nav-tab" href="#mananas">Mañanas</a>
+    <a class="nav-tab" href="#paninis">Paninis</a>
+    <a class="nav-tab" href="#bowls">Bowls & Burritos</a>
+    <a class="nav-tab" href="#snacks">Snacks</a>
+    <a class="nav-tab" href="#combos">Combos</a>
+    <a class="nav-tab" href="#bebidas">Bebidas</a>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       MAÑANAS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="mananas">
+    <div class="sec-header">
+      <h2 class="sec-title">Las <em>Mañanas</em></h2>
+      <span class="sec-label">Hasta las 11 AM</span>
+    </div>
+    <div class="items-2col">
+
+      <div class="item">
+        <div class="item-name">Los de la Casa</div>
+        <div class="item-desc">Huevos revueltos, frijoles de olla y tortilla caliente.</div>
+        <div class="item-price">$75</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Mollete Norteño</div>
+        <div class="item-desc">Bolillo tostado, frijoles, chorizo y queso fundido.</div>
+        <div class="item-price">$99</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Mollete Ahumado</div>
+        <div class="item-desc">Bolillo tostado, frijoles, tocino crocante y queso derretido.</div>
+        <div class="item-price">$99</div>
+      </div>
+
+      <div class="item" style="position:relative">
+        <div class="sig-bar"></div>
+        <div class="item-name sig">★ Chilaquiles Rojos de Pollo</div>
+        <div class="item-desc">Totopos en salsa roja, pollo desmenuzado, crema y queso.</div>
+        <div class="item-price">$100</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Chilaquiles de Chicharrón</div>
+        <div class="item-desc">Totopos, chicharrón en salsa roja, crema y queso.</div>
+        <div class="item-price">$115</div>
+      </div>
+
+      <div class="item" style="position:relative">
+        <div class="sig-bar"></div>
+        <div class="item-name sig">★ Chilaquiles de Barbacoa</div>
+        <div class="item-desc">Totopos en salsa roja, barbacoa jugosa, cebolla y cilantro.</div>
+        <div class="item-price">$129</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Burrito Mañanero — Chicharrón</div>
+        <div class="item-desc">Chicharrón en salsa roja, frijoles y queso en tortilla de harina.</div>
+        <div class="item-price">$90</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Burrito Mañanero — Barbacoa</div>
+        <div class="item-desc">Barbacoa, frijoles, queso y salsa verde en tortilla de harina.</div>
+        <div class="item-price">$90</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PANINIS & CROISSANTS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="paninis">
+    <div class="sec-header">
+      <h2 class="sec-title">Paninis &amp; <em>Croissants</em></h2>
+      <span class="sec-label">Todo el día</span>
+    </div>
+    <div class="items-2col">
+
+      <div class="item">
+        <div class="item-name">Panini Italiano</div>
+        <div class="item-desc">Salami, jitomate, pesto de albahaca y mozzarella al panini.</div>
+        <div class="item-price">$110</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Panini Napolitano</div>
+        <div class="item-desc">Prosciutto, jitomate cherry, albahaca fresca y mozzarella fundida.</div>
+        <div class="item-price">$135</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Croissant Clásico</div>
+        <div class="item-desc">Jamón, queso suizo y mostaza dijón en croissant de mantequilla.</div>
+        <div class="item-price">$85</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BOWLS & BURRITOS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="bowls">
+    <div class="sec-header">
+      <h2 class="sec-title"><em>Tu</em> Bowl &amp; Burrito</h2>
+      <span class="sec-label">Personaliza</span>
+    </div>
+    <div class="build-grid">
+
+      <div class="build-card">
+        <div class="build-head">
+          <div>
+            <div class="build-title"><em>Tu</em> Bowl</div>
+          </div>
+          <div>
+            <div class="build-base-price">$100</div>
+            <div class="build-base-sub">precio base</div>
+          </div>
+        </div>
+        <div class="build-body">
+          <div class="build-row">
+            <span class="build-key">Base (2)</span>
+            <span class="build-val">Arroz · Frijoles · Mix de Ensalada</span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Proteína</span>
+            <span class="build-val">Pollo Cubicado · Tenders <span class="plus">+$20</span> · Deshebrada <span class="plus">+$25</span></span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Toppings (2)</span>
+            <span class="build-val">Queso · Crema · Elote · Frijoles</span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Aderezo</span>
+            <span class="build-val">Cilantro-Limón · Chipotle · Salsa Roja · Salsa Verde</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-head">
+          <div>
+            <div class="build-title"><em>Tu</em> Burrito</div>
+          </div>
+          <div>
+            <div class="build-base-price">$120</div>
+            <div class="build-base-sub">precio base</div>
+          </div>
+        </div>
+        <div class="build-body">
+          <div class="build-row">
+            <span class="build-key">Base (2)</span>
+            <span class="build-val">Arroz · Frijoles · Mix de Ensalada</span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Proteína</span>
+            <span class="build-val">Pollo Cubicado · Tenders <span class="plus">+$20</span> · Deshebrada <span class="plus">+$25</span></span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Toppings (2)</span>
+            <span class="build-val">Queso · Crema · Elote · Frijoles</span>
+          </div>
+          <div class="build-row">
+            <span class="build-key">Aderezo</span>
+            <span class="build-val">Cilantro-Limón · Chipotle · Salsa Roja · Salsa Verde</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SNACKS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="snacks">
+    <div class="sec-header">
+      <h2 class="sec-title">Snacks &amp; <em>Cravings</em></h2>
+      <span class="sec-label">Todo el día</span>
+    </div>
+    <div class="items-2col">
+
+      <div class="item">
+        <div class="item-name">Tenders <span class="tag tag-best">Best Seller</span></div>
+        <div class="item-desc">Pollo empanizado, dorado y crujiente. Con dipping de la casa.</div>
+        <div class="item-price">$90</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Tenders &amp; Papas</div>
+        <div class="item-desc">Los mismos tenders con papas a la francesa.</div>
+        <div class="item-price">$120</div>
+      </div>
+
+      <div class="item" style="position:relative">
+        <div class="sig-bar"></div>
+        <div class="item-name sig">★ Burrito de Barbacoa</div>
+        <div class="item-desc">Barbacoa de olla lenta, crema, salsa verde y cebolla.</div>
+        <div class="item-price">$130</div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Burrito de Chicharrón</div>
+        <div class="item-desc">Chicharrón en salsa roja, crema y queso en tortilla tostada.</div>
+        <div class="item-price">$120</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       COMBOS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="combos">
+    <div class="sec-header">
+      <h2 class="sec-title">Los <em>Combos</em></h2>
+      <span class="sec-label">Bebida incluida</span>
+    </div>
+    <div class="combos-grid">
+
+      <div class="combo-card">
+        <div class="combo-name">Combo Mañana</div>
+        <div class="combo-desc">Chilaquiles o Mollete + Americano o Latte</div>
+        <div class="combo-foot">
+          <div class="combo-price">$130</div>
+          <div class="combo-save">Ahorras 20%</div>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-name">Combo Almuerzo</div>
+        <div class="combo-desc">Tu Bowl o Tu Burrito + Refresher</div>
+        <div class="combo-foot">
+          <div class="combo-price">$128</div>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-name">Combo Cravings</div>
+        <div class="combo-desc">Tenders &amp; Papas + Refresher</div>
+        <div class="combo-foot">
+          <div class="combo-price">$140</div>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-name">Combo Café de la Tarde</div>
+        <div class="combo-desc">Bebida Especial + Panini</div>
+        <div class="combo-foot">
+          <div class="combo-price">$170</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BEBIDAS
+  ══════════════════════════════════ -->
+  <section class="menu-section" id="bebidas">
+    <div class="sec-header">
+      <h2 class="sec-title">Café &amp; <em>Bebidas</em></h2>
+      <span class="sec-label">De especialidad</span>
+    </div>
+    <div class="bev-grid">
+
+      <!-- ESENCIALES -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Los Esenciales</div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name">Espresso</div>
+            <div class="bev-note">Concentrado puro</div>
+          </div>
+          <div class="bev-price">$49</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name">Americano</div>
+            <div class="bev-note">Limpio e intenso</div>
+          </div>
+          <div class="bev-price">$50</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name">Cappuccino</div>
+          </div>
+          <div class="bev-price">$65</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name">Latte</div>
+            <div class="bev-note">El favorito</div>
+          </div>
+          <div class="bev-price">$65</div>
+        </div>
+      </div>
+
+      <!-- TEMPORADA -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Lattes de Temporada</div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name">Mocha</div>
+            <div class="bev-note">Espresso y chocolate belga</div>
+          </div>
+          <div class="bev-price">$75</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Vainilla Latte</div></div>
+          <div class="bev-price">$75</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Caramel Latte</div></div>
+          <div class="bev-price">$75</div>
+        </div>
+        <div class="bev-fam-name" style="margin-top:20px">Sin Culpa · Sugar Free</div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Vainilla Sin Culpa</div></div>
+          <div class="bev-price">$85</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Caramel Sin Culpa</div></div>
+          <div class="bev-price">$85</div>
+        </div>
+      </div>
+
+      <!-- ESPECIALES -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Especiales</div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name sig">★ Matcha Latte</div>
+            <div class="bev-note">Energía tranquila</div>
+          </div>
+          <div class="bev-price">$85</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name sig">★ Chai Latte</div>
+            <div class="bev-note">Cálido y adictivo</div>
+          </div>
+          <div class="bev-price">$85</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left">
+            <div class="bev-name sig">★ Taro Latte</div>
+            <div class="bev-note">El más fotogénico</div>
+          </div>
+          <div class="bev-price">$85</div>
+        </div>
+      </div>
+
+      <!-- REFRESHERS -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Refreshers</div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Jamaica Refresher</div></div>
+          <div class="bev-price">$60</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Pepino Refresher</div></div>
+          <div class="bev-price">$60</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Refresher Rojo</div></div>
+          <div class="bev-price">$60</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Refresher Verde</div></div>
+          <div class="bev-price">$60</div>
+        </div>
+      </div>
+
+      <!-- INFUSIONES -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Infusiones</div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Menta-Limón</div></div>
+          <div class="bev-price">$55</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Jengibre &amp; Miel</div></div>
+          <div class="bev-price">$55</div>
+        </div>
+        <div class="bev-item">
+          <div class="bev-left"><div class="bev-name">Manzanilla</div></div>
+          <div class="bev-price">$55</div>
+        </div>
+      </div>
+
+      <!-- EXTRAS NOTE -->
+      <div class="bev-family">
+        <div class="bev-fam-name">Personaliza</div>
+        <div class="bev-extras">
+          Tamaño Grande +$22<br>
+          Leche de avena +$18<br>
+          Leche de almendra +$18<br>
+          Shot extra de espresso +$15
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="menu-footer">
+    <div class="footer-brand">Café <em>Azúcar</em> Morena</div>
+    <div class="footer-legend">
+      <span>★ Firma de la casa</span>
+      <span>Precios incluyen IVA</span>
+      <span>@cafeazucarmorena</span>
+    </div>
+    <div class="footer-note">EST. 2018 · MONTERREY · CAFÉ DE ESPECIALIDAD · AZUMOCA S.A. DE C.V.</div>
+  </footer>
+
+</div>
+</body>
+</html>
